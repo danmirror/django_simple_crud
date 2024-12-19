@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+    <form action="{% url 'user-edit-submition' id=user.id %}"  method="post">
+        {% csrf_token %}
+        <label for=""> name </label>
+        <input name="name" value="{{user.name}}" type="text">
+        <label for=""> old </label>
+        <input name="old" value="{{user.old}}"  type="text">
+        <label for=""> number </label>
+        <input name="number" value="{{user.number}}" type="text">
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
